@@ -2,13 +2,13 @@ package org.example;
 
 import java.util.Map;
 
-import static org.example.Main.products;
-
 public class Basket {
-    protected Purchase[] purchases = new Purchase[products.size()];
+    protected Purchase[] purchases;
 
-    public Basket(){
+    public Basket(int size) {
+        purchases = new Purchase[size];
     }
+
     public void addPurchase(String title, int count) {
         for (int i = 0; i < purchases.length; i++) {
             if (purchases[i] == null) {
@@ -21,6 +21,7 @@ public class Basket {
             }
         }
     }
+
     public long sum(Map<String, Integer> prices) {
         long sum = 0;
         System.out.println("КОРЗИНА:");

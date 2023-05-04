@@ -21,7 +21,7 @@ public class Main {
 
         System.out.println("Введите два слова: название товара и количество. Или end");
         Scanner scanner = new Scanner(System.in);
-        Basket basket = new Basket();
+        Basket basket = new Basket(products.size());
         while (true) {
             String line = scanner.nextLine();
             if ("end".equals(line)) break;
