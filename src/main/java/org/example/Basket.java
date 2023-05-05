@@ -1,12 +1,15 @@
 package org.example;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class Basket {
+    HashMap<String, Integer> prices;
     protected Purchase[] purchases;
 
-    public Basket(int size) {
-        purchases = new Purchase[size];
+    public Basket(Map<String, Integer> prices) {
+        this.prices = new HashMap<>(prices);
+        this.purchases = new Purchase[prices.size()];
     }
 
     public void addPurchase(String title, int count) {
@@ -22,7 +25,7 @@ public class Basket {
         }
     }
 
-    public long sum(Map<String, Integer> prices) {
+    public long sum() {
         long sum = 0;
         System.out.println("КОРЗИНА:");
         for (int i = 0; i < purchases.length; i++) {

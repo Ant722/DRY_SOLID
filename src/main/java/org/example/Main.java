@@ -5,10 +5,9 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class Main {
-    public static HashMap<String, Integer> products = new HashMap<>();
 
     public static void main(String[] args) {
-
+        HashMap<String, Integer> products = new HashMap<>();
         products.put("Хлеб", 56);
         products.put("Масло", 153);
         products.put("Колбаса", 211);
@@ -21,7 +20,7 @@ public class Main {
 
         System.out.println("Введите два слова: название товара и количество. Или end");
         Scanner scanner = new Scanner(System.in);
-        Basket basket = new Basket(products.size());
+        Basket basket = new Basket(products);
         while (true) {
             String line = scanner.nextLine();
             if ("end".equals(line)) break;
@@ -30,7 +29,7 @@ public class Main {
             int count = Integer.parseInt(parts[1]);
             basket.addPurchase(product, count);
         }
-        long sum = basket.sum(products);
+        long sum = basket.sum();
         System.out.println("ИТОГО: " + sum);
     }
 }
